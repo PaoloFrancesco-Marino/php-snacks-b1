@@ -112,7 +112,7 @@
         <strong> Email:</strong> <?php echo ($data['mail']) ?>
     </li>
     <li>
-    <strong> Age:</strong> <?php echo ($data['age']) ?>
+        <strong> Age:</strong> <?php echo ($data['age']) ?>
     </li>
 </ul>
 
