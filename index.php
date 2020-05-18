@@ -35,19 +35,19 @@
             'home' => $randomChoice($team),
             'away' => $randomChoice($team),
             'p_home' => rand(80, 120),
-            'p_away' => rand(50, 110)
+            'p_away' => rand(65, 110)
         ],
         [
             'home' => $randomChoice($team),
             'away' => $randomChoice($team),
-            'p_home' => rand(50, 100),
-            'p_away' => rand(60, 110)
+            'p_home' => rand(70, 100),
+            'p_away' => rand(70, 110)
         ],
         [
             'home' => $randomChoice($team),
             'away' => $randomChoice($team),
-            'p_home' => rand(50, 90),
-            'p_away' => rand(50, 100)
+            'p_home' => rand(70, 90),
+            'p_away' => rand(70, 100)
         ]
         ];
     ?>
@@ -65,6 +65,56 @@
     </ul>
 
 <hr>
+
+
+<h1>Snack #2</h1>
+
+<?php 
+    /**
+     * Passare come parametri GET name, mail e age e verificare (cercando i metodi che nonconosciamo nella documentazione) che:
+        1. name sia più lungo di 3 caratteri,
+        2. che mail contenga un punto e una chiocciola
+        3. e che age sia un numero.Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”
+     */
+
+    $data = $_GET;
+
+    // check presenza valori
+    
+    if ( empty($data['name']) || empty($data['mail']) || empty($data['age']) ) {
+        echo "Errore: non è stato inserito alcun parametro";
+    }
+    // check name
+    elseif ( strlen($data['name']) <= 3 ) {
+        echo 'Accesso Negato: il nome inserito è sbagliato';
+    }
+    // check mail
+    elseif ( strpos($data['mail'], '@') === false || strpos($data['mail'], '.') === false ){
+        echo 'Accesso negato: email non corretta';
+    }
+    // check age
+    elseif (! is_numeric($data['age']) ) {
+        echo 'Accesso Negato: età non corretta';
+    
+    }
+    else {
+        echo 'Accesso Eseguito';
+    }
+
+?>
+
+<h4>Parametri inseriti:</h4>
+<ul>
+    <li>
+        <strong> Nome:</strong> <?php echo ($data['name']) ?>
+    </li>
+    <li>
+        <strong> Email:</strong> <?php echo ($data['mail']) ?>
+    </li>
+    <li>
+    <strong> Age:</strong> <?php echo ($data['age']) ?>
+    </li>
+</ul>
 
 
 
